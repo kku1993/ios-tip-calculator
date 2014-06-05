@@ -38,15 +38,15 @@
     [super viewDidLoad];
     [self updateValues];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:true];
     
     // select the default tip amount
     UserPreference *up = [[UserPreference alloc] init];
     self.tipControl.selectedSegmentIndex = up.getDefaultTipIndex;
     [self updateValues];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:true];
 }
 
 - (void)didReceiveMemoryWarning
